@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class Books {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -18,10 +18,10 @@ public class Books {
                 inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors;
 
-    public Books() {
+    public Book() {
     }
 
-    public Books(String title, String isbn, Set<Author> authors) {
+    public Book(String title, String isbn, Set<Author> authors) {
         this.title = title;
         this.isbn = isbn;
         this.authors = authors;
@@ -55,7 +55,7 @@ public class Books {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Books books = (Books) o;
+        Book books = (Book) o;
         return Objects.equals(id, books.id);
     }
 
